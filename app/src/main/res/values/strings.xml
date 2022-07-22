@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">User Input</string>
+
+
+    <!--Urlaubspreise-->
+    <string name="preis1">4 Nächte ab 250 €</string>
+
+    <string name="preis2">1 Woche ab 400 €</string>
+
+    <string name="preis3">pro Tag 40 €</string>
+
+    <string name="preis4">23 € / Stunde</string>
+    <!-- __________________________________________________ -->
+
+    <string name="share_text">Angebot teilen</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
