@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.example.recyclerview.MainViewModel
 import com.example.recyclerview.R
 import com.example.recyclerview.databinding.FragmentDetailBinding
 
@@ -15,6 +17,7 @@ class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
 
     // TODO lade mit Hilfe von activityViewModels() das MainViewModel
+    private val viewModel: MainViewModel by activityViewModels()
 
     private var vacationId: Long = 0
 
@@ -22,26 +25,29 @@ class DetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // TODO lade die richtige id aus den arguments
+        vacationId = viewModel.vacations.value?.get(0)!!.id
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_detail, container, false
+            inflater,
+            R.layout.fragment_detail,
+            container,
+            false
         )
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         // TODO finde mit Hilfe der ID die passende Vacation aus den vacations des ViewModels
         //  danach setze die BackgroundResource des Layouts die ImageResource des BackgroundImage
         //  sowie die den text der TextView auf die in der Vacation gespeicherten Werte
         //  (das ganze sollte innerhalb eines Observers geschehen)
+
 
 
         binding.detailShareButton.setOnClickListener {
