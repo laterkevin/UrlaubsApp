@@ -25,9 +25,9 @@ class CategoryFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // TODO lade die richtige category aus den arguments
-        category = viewModel.categories[0].name
-
-//        val categories = Repository().categories
+        arguments?.let {
+            category = it.getString("category").toString()
+        }
     }
 
     override fun onCreateView(

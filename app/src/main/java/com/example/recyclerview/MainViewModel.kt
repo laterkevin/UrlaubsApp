@@ -1,3 +1,4 @@
+
 package com.example.recyclerview
 
 import androidx.lifecycle.ViewModel
@@ -5,7 +6,7 @@ import com.example.recyclerview.data.Repository
 
 class MainViewModel : ViewModel() {
 
-    val repo = Repository()
+    private val repo = Repository()
 
     val vacations = repo.vacations
 

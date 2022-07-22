@@ -25,7 +25,9 @@ class DetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // TODO lade die richtige id aus den arguments
-        vacationId = viewModel.vacations.value?.get(0)!!.id
+        arguments?.let {
+            vacationId = it.getLong("id")
+        }
     }
 
     override fun onCreateView(
@@ -47,8 +49,14 @@ class DetailFragment : Fragment() {
         //  danach setze die BackgroundResource des Layouts die ImageResource des BackgroundImage
         //  sowie die den text der TextView auf die in der Vacation gespeicherten Werte
         //  (das ganze sollte innerhalb eines Observers geschehen)
+        viewModel.vacations.observe(viewLifecycleOwner) {
+            val element = it.find { it.id == vacationId }
 
-
+            if (element != null) {
+                binding.detailLayout.setBackgroundResource(element.imageResource)
+                binding.detailText.text = getString(element.stringResource)
+            }
+        }
 
         binding.detailShareButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)

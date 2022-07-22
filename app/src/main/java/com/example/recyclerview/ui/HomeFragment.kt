@@ -1,4 +1,3 @@
-
 package com.example.recyclerview.ui
 
 import android.os.Bundle
